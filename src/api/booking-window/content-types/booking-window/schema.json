@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "booking_windows",
+  "info": {
+    "singularName": "booking-window",
+    "pluralName": "booking-windows",
+    "displayName": "Booking window"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "days": {
+      "type": "integer"
+    }
+  }
+}
