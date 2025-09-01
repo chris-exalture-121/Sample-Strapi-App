@@ -438,6 +438,36 @@ export interface ApiBookingWindowBookingWindow extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiTaxRateTaxRate extends Struct.SingleTypeSchema {
+  collectionName: 'tax_rates';
+  info: {
+    displayName: 'Tax Rate';
+    pluralName: 'tax-rates';
+    singularName: 'tax-rate';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    California: Schema.Attribute.Decimal;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    India: Schema.Attribute.Decimal;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tax-rate.tax-rate'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Texas: Schema.Attribute.Decimal;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -949,6 +979,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::booking-window.booking-window': ApiBookingWindowBookingWindow;
+      'api::tax-rate.tax-rate': ApiTaxRateTaxRate;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
