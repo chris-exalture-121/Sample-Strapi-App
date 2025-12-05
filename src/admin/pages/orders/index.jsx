@@ -6,24 +6,24 @@ import Spinner from "../../../components/Spinner"; // Make sure you have a Spinn
 
 const normalizeOrders = (orders = []) => {
   return orders.map((order) => {
-    const itemsSummary =
+    const items_summary =
       order.orderItems
         ?.map((i) => `${i.menuItem?.item_name} x${i.quantity}`)
         .join(", ") || "";
 
     return {
       id: order.id,
+      items_summary,
       status: order.status,
-      totalAmount: Number(order.totalAmount),
-      createdAt: DateTime.fromISO(order.createdAt).toFormat("LLL d, yyyy"),
-      scheduledAt: DateTime.fromISO(order.scheduledAt).toFormat("LLL d, yyyy"),
-      customerName: order.user?.name || "",
-      customerPhone: order.user?.phone || "",
-      addressText: `${order.address?.label} - ${order.address?.address}`,
-      kitchenName: order.kitchen?.name || "",
-      kitchenAddress: order.kitchen?.address || "",
-      itemsSummary,
-      itemsCount: order.orderItems?.length || 0,
+      total_amount: Number(order.totalAmount),
+      scheduled_at: DateTime.fromISO(order.scheduledAt).toFormat("LLL d, yyyy"),
+      customer_name: order.user?.name || "",
+      customer_phone: order.user?.phone || "",
+      address_text: `${order.address?.label} - ${order.address?.address}`,
+      kitchen_name: order.kitchen?.name || "",
+      kitchen_address: order.kitchen?.address || "",
+      created_at: DateTime.fromISO(order.createdAt).toFormat("LLL d, yyyy"),
+      items_count: order.orderItems?.length || 0,
     };
   });
 };
