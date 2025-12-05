@@ -29,8 +29,8 @@ module.exports = {
         return { error: true, message: "kitchenId is required" };
       }
 
-      const response = await axios.post(
-        `http://209.59.188.82:8080/api/update-kitchen/${kitchenId}`,
+      const response = await axios.patch(
+        `http://209.59.188.82:8080/api/kitchen/update-kitchen/${kitchenId}`,
         updateData,
         {
           headers: {

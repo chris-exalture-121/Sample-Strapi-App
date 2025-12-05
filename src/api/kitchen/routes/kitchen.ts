@@ -14,7 +14,7 @@ module.exports = {
     },
     {
       method: "POST",
-      path: "/kitchen/",
+      path: "/kitchen",
       handler: "kitchen.updateKitchen",
       config: { auth: false },
     },
