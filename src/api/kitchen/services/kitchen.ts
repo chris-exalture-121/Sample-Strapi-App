@@ -1,0 +1,5 @@
+/**
+ * kitchen service
+ */
+
+export default () => ({});
