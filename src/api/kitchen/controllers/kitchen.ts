@@ -5,7 +5,7 @@ module.exports = {
   async getKitchens(ctx) {
     try {
       const response = await axios.get(
-        "http://209.59.188.82:8080/api/kitchen",
+        `${process.env.SERVER_URL}/api/kitchen`,
         {
           headers: {
             Authorization: `Bearer ${process.env.API_TOKEN}`,
@@ -30,7 +30,7 @@ module.exports = {
       }
 
       const response = await axios.patch(
-        `http://209.59.188.82:8080/api/kitchen/update-kitchen/${kitchenId}`,
+        `${process.env.SERVER_URL}/api/kitchen/update-kitchen/${kitchenId}`,
         updateData,
         {
           headers: {
@@ -54,7 +54,7 @@ module.exports = {
   async updateApproval(ctx) {
     try {
       const response = await axios.post(
-        "http://209.59.188.82:8080/api/kitchen/update-approval-status",
+        `${process.env.SERVER_URL}/api/kitchen/update-approval-status`,
         ctx.request.body,
         {
           headers: {

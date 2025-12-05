@@ -5,7 +5,7 @@ export default {
   // Get all orders
   async find(ctx: Context) {
     try {
-      const response = await axios.get("http://209.59.188.82:8080/api/orders", {
+      const response = await axios.get(`${process.env.SERVER_URL}/api/orders`, {
         headers: {
           Authorization: `Bearer ${process.env.API_TOKEN}`,
           "Content-Type": "application/json",
@@ -24,7 +24,7 @@ export default {
       const data = ctx.request.body;
 
       const response = await axios.post(
-        "http://209.59.188.82:8080/api/orders",
+        `${process.env.SERVER_URL}/api/orders`,
         data,
         {
           headers: {
