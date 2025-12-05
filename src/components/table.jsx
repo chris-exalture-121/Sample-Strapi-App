@@ -5,8 +5,15 @@ const ReusableTable = ({ data, renderAction }) => {
 
   if (!Array.isArray(data) || data.length === 0)
     return (
-      <p style={{ color: "#ccc", fontSize: "14px", padding: "20px" }}>
-        No data found.
+      <p
+        style={{
+          color: "#ccc",
+          fontSize: "14px",
+          padding: "20px",
+          textAlign: "center",
+        }}
+      >
+        No data found.{" "}
       </p>
     );
 
@@ -14,7 +21,6 @@ const ReusableTable = ({ data, renderAction }) => {
     (col) => typeof data[0][col] !== "object"
   );
 
-  // Filter data based on search input
   const filteredData = useMemo(() => {
     if (!search) return data;
     const lowerSearch = search.toLowerCase();
@@ -26,9 +32,24 @@ const ReusableTable = ({ data, renderAction }) => {
   }, [search, data, columns]);
 
   return (
-    <div style={{ height: "80vh", overflowY: "auto", background: "#111", padding: "0", margin: "0" }}>
-      {/* Search box */}
-      <div style={{ padding: "10px", background: "#181818", position: "sticky", top: 0, zIndex: 10 }}>
+    <div
+      style={{
+        height: "80vh",
+        overflowY: "auto",
+        background: "#111",
+        padding: "0",
+        margin: "0",
+      }}
+    >
+      <div
+        style={{
+          padding: "10px",
+          background: "#181818",
+          position: "sticky",
+          top: 0,
+          zIndex: 10,
+        }}
+      >
         <input
           type="text"
           placeholder="Search..."
@@ -41,8 +62,9 @@ const ReusableTable = ({ data, renderAction }) => {
             border: "1px solid #333",
             background: "#1b1b1b",
             color: "#fff",
+            textAlign: "center",
           }}
-        />
+        />{" "}
       </div>
 
       <table
@@ -53,6 +75,7 @@ const ReusableTable = ({ data, renderAction }) => {
           fontFamily: "Inter, Arial, sans-serif",
           fontSize: "14px",
           color: "#f1f1f1",
+          textAlign: "center",
         }}
       >
         <thead>
@@ -62,7 +85,7 @@ const ReusableTable = ({ data, renderAction }) => {
                 key={col}
                 style={{
                   position: "sticky",
-                  top: "42px", // below the search bar
+                  top: "42px",
                   background: "#181818",
                   padding: "14px 12px",
                   fontWeight: 600,
@@ -71,6 +94,8 @@ const ReusableTable = ({ data, renderAction }) => {
                   letterSpacing: "0.6px",
                   borderBottom: "1px solid #2e2e2e",
                   zIndex: 5,
+                  textAlign: "center",
+                  verticalAlign: "middle",
                 }}
               >
                 {col}
@@ -81,13 +106,15 @@ const ReusableTable = ({ data, renderAction }) => {
               <th
                 style={{
                   position: "sticky",
-                  top: "42px", // below search bar
+                  top: "42px",
                   background: "#181818",
                   padding: "14px 12px",
                   fontWeight: 600,
                   fontSize: "13px",
                   borderBottom: "1px solid #2e2e2e",
                   zIndex: 5,
+                  textAlign: "center",
+                  verticalAlign: "middle",
                 }}
               >
                 ACTION
@@ -99,7 +126,10 @@ const ReusableTable = ({ data, renderAction }) => {
         <tbody>
           {filteredData.length === 0 ? (
             <tr>
-              <td colSpan={columns.length + (renderAction ? 1 : 0)} style={{ padding: "20px", textAlign: "center", color: "#ccc" }}>
+              <td
+                colSpan={columns.length + (renderAction ? 1 : 0)}
+                style={{ padding: "20px", textAlign: "center", color: "#ccc" }}
+              >
                 No results found
               </td>
             </tr>
@@ -111,7 +141,9 @@ const ReusableTable = ({ data, renderAction }) => {
                   background: idx % 2 === 0 ? "#1b1b1b" : "#161616",
                   transition: "background 0.2s",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = "#222")}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.background = "#222")
+                }
                 onMouseLeave={(e) =>
                   (e.currentTarget.style.background =
                     idx % 2 === 0 ? "#1b1b1b" : "#161616")
@@ -125,6 +157,8 @@ const ReusableTable = ({ data, renderAction }) => {
                       borderBottom: "1px solid #2b2b2b",
                       fontSize: "13px",
                       color: "#ddd",
+                      textAlign: "center",
+                      verticalAlign: "middle",
                     }}
                   >
                     {row[col]}
@@ -137,6 +171,8 @@ const ReusableTable = ({ data, renderAction }) => {
                       padding: "12px 10px",
                       borderBottom: "1px solid #2b2b2b",
                       fontSize: "13px",
+                      textAlign: "center",
+                      verticalAlign: "middle",
                     }}
                   >
                     {renderAction(row)}

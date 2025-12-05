@@ -52,7 +52,7 @@ const OrdersPage = () => {
 
   return (
     <div style={{ padding: 20, height: "100vh", boxSizing: "border-box" }}>
-      <h1 style={{ marginBottom: 20 }}>Orders</h1>
+      <h1 style={{ marginBottom: 20, fontSize: 28 }}>Orders</h1>
 
       <div
         style={{
