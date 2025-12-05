@@ -20,6 +20,37 @@ module.exports = {
     }
   },
 
+  async updateKitchen(ctx) {
+    try {
+      const { kitchenId, ...updateData } = ctx.request.body; // Extract kitchenId from body
+
+      if (!kitchenId) {
+        ctx.status = 400;
+        return { error: true, message: "kitchenId is required" };
+      }
+
+      const response = await axios.post(
+        `http://209.59.188.82:8080/api/update-kitchen/${kitchenId}`,
+        updateData,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.API_TOKEN}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      ctx.status = response.status;
+      return response.data;
+    } catch (err: any) {
+      ctx.status = err.response?.status || 500;
+      return {
+        error: true,
+        message: err.response?.data?.message || err.message,
+      };
+    }
+  },
+
   async updateApproval(ctx) {
     try {
       const response = await axios.post(

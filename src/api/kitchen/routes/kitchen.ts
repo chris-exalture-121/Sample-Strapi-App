@@ -12,5 +12,11 @@ module.exports = {
       handler: "kitchen.updateApproval",
       config: { auth: false },
     },
+    {
+      method: "POST",
+      path: "/kitchen/",
+      handler: "kitchen.updateKitchen",
+      config: { auth: false },
+    },
   ],
 };

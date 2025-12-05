@@ -26,7 +26,7 @@ const ReusableTable = ({ data, renderAction }) => {
   }, [search, data, columns]);
 
   return (
-    <div style={{ height: "100vh", overflowY: "auto", background: "#111", padding: "0", margin: "0" }}>
+    <div style={{ height: "80vh", overflowY: "auto", background: "#111", padding: "0", margin: "0" }}>
       {/* Search box */}
       <div style={{ padding: "10px", background: "#181818", position: "sticky", top: 0, zIndex: 10 }}>
         <input

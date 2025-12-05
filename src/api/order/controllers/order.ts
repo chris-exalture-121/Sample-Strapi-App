@@ -17,4 +17,27 @@ export default {
       return { error: err.message };
     }
   },
+
+  // Update order
+  async update(ctx: Context) {
+    try {
+      const data = ctx.request.body;
+
+      const response = await axios.post(
+        "http://209.59.188.82:8080/api/orders",
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.API_TOKEN}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      return response.data;
+    } catch (err: any) {
+      ctx.status = 400;
+      return { error: err.message };
+    }
+  },
 };
