@@ -10,6 +10,7 @@ const normalizeKitchens = (kitchens) => {
     address: k.address,
     latitude: k.latitude ? Number(k.latitude) : null,
     longitude: k.longitude ? Number(k.longitude) : null,
+    user: k.user?.name,
     approvalStatus: k.approvalStatus,
     licenseNumber: k.licenseNumber,
     licenseProvider: k.licenseProvider ?? "",
