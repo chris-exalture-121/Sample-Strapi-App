@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "onfleet_pickup_thresholds",
+  "info": {
+    "singularName": "onfleet-pickup-threshold",
+    "pluralName": "onfleet-pickup-thresholds",
+    "displayName": "Onfleet Pickup Threshold"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "threshold": {
+      "type": "integer"
+    }
+  }
+}

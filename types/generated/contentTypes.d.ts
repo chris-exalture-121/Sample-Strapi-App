@@ -438,6 +438,35 @@ export interface ApiBookingWindowBookingWindow extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiOnfleetPickupThresholdOnfleetPickupThreshold
+  extends Struct.SingleTypeSchema {
+  collectionName: 'onfleet_pickup_thresholds';
+  info: {
+    displayName: 'Onfleet Pickup Threshold';
+    pluralName: 'onfleet-pickup-thresholds';
+    singularName: 'onfleet-pickup-threshold';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::onfleet-pickup-threshold.onfleet-pickup-threshold'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    threshold: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTaxRateTaxRate extends Struct.SingleTypeSchema {
   collectionName: 'tax_rates';
   info: {
@@ -979,6 +1008,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::booking-window.booking-window': ApiBookingWindowBookingWindow;
+      'api::onfleet-pickup-threshold.onfleet-pickup-threshold': ApiOnfleetPickupThresholdOnfleetPickupThreshold;
       'api::tax-rate.tax-rate': ApiTaxRateTaxRate;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
